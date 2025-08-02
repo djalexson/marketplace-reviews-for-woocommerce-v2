@@ -1,0 +1,530 @@
+:root {
+						--mp-bg-main: #f8f9fa;
+						--mp-bg-white: #fff;
+						--mp-bg-tab-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+						--mp-bg-tab-gradient-hover: linear-gradient(135deg, #5a67d8 0%, #6b46c1 100%);
+						--mp-bg-tab-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+						--mp-bg-tab-shadow-hover: 0 6px 20px rgba(102, 126, 234, 0.6);
+						--mp-bg-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+						--mp-bg-box-shadow-light: 0 2px 4px rgba(0, 0, 0, 0.05);
+						--mp-bg-success: #d4edda;
+						--mp-bg-error: #f8d7da;
+						--mp-bg-svg: #f8f9fa;
+						--mp-bg-svg-focus: #fff;
+
+						--mp-color-primary: #667eea;
+						--mp-color-primary-dark: #5a67d8;
+						--mp-color-secondary: #764ba2;
+						--mp-color-title: #2c3e50;
+						--mp-color-text: #6c757d;
+						--mp-color-text-dark: #495057;
+						--mp-color-label: #2c3e50;
+						--mp-color-success: #155724;
+						--mp-color-error: #721c24;
+						--mp-color-border: #e9ecef;
+						--mp-color-border-focus: #667eea;
+						--mp-color-border-svg: #dee2e6;
+						--mp-color-checkbox: #667eea;
+						--mp-color-btn-success: #28a745;
+						--mp-color-btn-success-hover: #218838;
+						--mp-color-btn-save: #667eea;
+						--mp-color-btn-save-secondary: #764ba2;
+						--mp-color-btn-save-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+
+						--mp-radius-main: 12px;
+						--mp-radius-btn: 8px;
+						--mp-radius-small: 6px;
+						--mp-radius-table-th: 8px 8px 0 0;
+						--mp-radius-table-td: 0 0 8px 8px;
+				}
+
+				.marketplace-reviews-settings {
+						background: var(--mp-bg-main);
+					  margin: 20px auto;
+            padding: 20px;
+            max-width: max-content;
+				}
+
+				.marketplace-reviews-settings h1 {
+						color: var(--mp-color-title);
+						font-size: 28px;
+						font-weight: 600;
+						margin-bottom: 30px;
+						text-align: center;
+						background: var(--mp-bg-tab-gradient);
+						-webkit-background-clip: text;
+						-webkit-text-fill-color: transparent;
+						background-clip: text;
+				}
+
+				/* Стили для навигации */
+				.marketplace-nav-tabs {
+						background: var(--mp-bg-white);
+						border-radius: var(--mp-radius-main);
+						box-shadow: var(--mp-bg-box-shadow);
+						padding: 8px;
+						margin-bottom: 30px;
+						display: flex;
+						flex-wrap: wrap;
+						gap: 4px;
+				}
+
+				.marketplace-nav-tabs .nav-tab {
+						border: none;
+						background: transparent;
+						color: var(--mp-color-text);
+						padding: 12px 20px;
+						border-radius: var(--mp-radius-btn);
+						font-weight: 500;
+						transition: all 0.3s ease;
+						display: flex;
+						align-items: center;
+						gap: 8px;
+						text-decoration: none;
+						position: relative;
+						overflow: hidden;
+				}
+
+				.marketplace-nav-tabs .nav-tab:hover {
+						background: var(--mp-bg-main);
+						color: var(--mp-color-text-dark);
+						transform: translateY(-2px);
+				}
+
+				.marketplace-nav-tabs .nav-tab-active {
+						background: var(--mp-bg-tab-gradient);
+						color: #fff !important;
+						box-shadow: var(--mp-bg-tab-shadow);
+				}
+
+				.marketplace-nav-tabs .nav-tab-active:hover {
+						transform: translateY(-2px);
+						background: var(--mp-bg-tab-gradient-hover);
+				}
+
+				.tab-icon {
+						font-size: 16px;
+				}
+
+				/* Стили для содержимого */
+				.tab-content {
+						background: var(--mp-bg-white);
+						border-radius: var(--mp-radius-main);
+						box-shadow: var(--mp-bg-box-shadow);
+						padding: 30px;
+				}
+
+				.form-table {
+						background: transparent;
+				}
+
+				.form-table th {
+						width: 280px;
+						padding: 20px 15px;
+						font-weight: 600;
+						color: var(--mp-color-label);
+						background: var(--mp-bg-main);
+						border-left: 4px solid var(--mp-color-primary);
+						vertical-align: middle;
+				}
+
+				.form-table td {
+						padding: 20px 15px;
+						background: var(--mp-bg-white);
+						border-bottom: 1px solid var(--mp-color-border);
+				}
+
+				.form-table tr:hover th,
+				.form-table tr:hover td {
+						background: #f1f3f4;
+				}
+
+				/* Стили для полей */
+				.form-table input[type="text"],
+				.form-table textarea,
+				.form-table select {
+						border: 2px solid var(--mp-color-border);
+						border-radius: var(--mp-radius-btn);
+						padding: 12px 16px;
+						font-size: 14px;
+						transition: all 0.3s ease;
+						background: var(--mp-bg-white);
+						box-shadow: var(--mp-bg-box-shadow-light);
+				}
+
+				.form-table input[type="text"]:focus,
+				.form-table textarea:focus,
+				.form-table select:focus {
+						border-color: var(--mp-color-border-focus);
+						box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+						outline: none;
+						transform: translateY(-1px);
+				}
+
+				.form-table input[type="text"],
+				.form-table textarea {
+						width: 100%;
+						max-width: 500px;
+				}
+
+				.form-table select {
+						min-width: 200px;
+						background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+						background-position: right 12px center;
+						background-repeat: no-repeat;
+						background-size: 16px;
+						padding-right: 40px;
+				}
+				/* Стили для чекбоксов */
+				.form-table input[type="checkbox"] {
+						width: 24px;
+						height: 24px;
+						display: inline-block;
+						vertical-align: middle;
+						position: relative;
+						margin: 0;
+						cursor: pointer;
+						accent-color: var(--mp-color-checkbox);
+						appearance: none;
+						background: #fff;
+						border: 2px solid var(--mp-color-checkbox);
+						border-radius: 6px;
+						transition: border-color 0.2s;
+				}
+				.form-table input[type="checkbox"]:focus {
+						outline: none;
+						box-shadow: 0 0 0 2px rgba(102,126,234,0.2);
+						border-color: var(--mp-color-primary-dark);
+					}
+					.form-table input[type="checkbox"]::before {
+						display: none!important;
+							}
+							.form-table input[type="checkbox"]:checked::before {
+				display: none!important;
+				}
+				.form-table input[type="checkbox"]:checked::after {
+						content: '';
+						position: absolute;
+						left: 50%;
+						top: 50%;
+						width: 7px;
+						height: 12px;
+						border: solid var(--mp-color-primary-dark);
+						border-width: 0 3px 3px 0;
+						transform: translate(-50%, -60%) rotate(45deg);
+						pointer-events: none;
+						box-sizing: border-box;
+						display: block;
+				}
+
+				/* Стили для кнопок */
+				.save-button {
+						background: var(--mp-bg-tab-gradient) !important;
+						border: none !important;
+						border-radius: var(--mp-radius-btn) !important;
+						padding: 12px 30px !important;
+						font-size: 16px !important;
+						font-weight: 600 !important;
+						color: #fff !important;
+						cursor: pointer !important;
+						transition: all 0.3s ease !important;
+						box-shadow: var(--mp-bg-tab-shadow) !important;
+						text-shadow: none !important;
+				}
+
+				.save-button:hover {
+						transform: translateY(-2px) !important;
+						box-shadow: var(--mp-bg-tab-shadow-hover) !important;
+				}
+
+				/* Стили для страниц */
+				.page-select-wrapper {
+						display: flex;
+						align-items: center;
+						gap: 12px;
+						flex-wrap: wrap;
+				}
+
+				.page-status {
+						font-weight: 600;
+						padding: 6px 12px;
+						border-radius: var(--mp-radius-small);
+						font-size: 12px;
+				}
+
+				.page-status.success {
+						color: var(--mp-color-success);
+						background: var(--mp-bg-success);
+				}
+
+				.page-status.error {
+						color: var(--mp-color-error);
+						background: var(--mp-bg-error);
+				}
+
+				.create-page-btn {
+						background: var(--mp-color-btn-success) !important;
+						color: #fff !important;
+						border: none !important;
+						border-radius: var(--mp-radius-small) !important;
+						padding: 8px 16px !important;
+						font-size: 13px !important;
+						cursor: pointer !important;
+						transition: all 0.3s ease !important;
+				}
+
+				.create-page-btn:hover {
+						background: var(--mp-color-btn-success-hover) !important;
+						transform: translateY(-1px);
+				}
+
+				.create-page-btn:disabled {
+						opacity: 0.6;
+						cursor: not-allowed;
+				}
+
+				.button-small {
+						font-size: 12px !important;
+						padding: 6px 12px !important;
+						height: auto !important;
+				}
+
+				/* Адаптивность */
+				@media (max-width: 768px) {
+						.marketplace-nav-tabs {
+					flex-direction: column;
+						}
+
+						.marketplace-nav-tabs .nav-tab {
+					width: 100%;
+					justify-content: center;
+						}
+
+						.form-table th,
+						.form-table td {
+					display: block;
+					width: 100% !important;
+					padding: 15px;
+						}
+
+						.form-table th {
+					border-left: none;
+					border-top: 4px solid var(--mp-color-primary);
+					border-radius: var(--mp-radius-table-th);
+						}
+
+						.form-table td {
+					border-radius: var(--mp-radius-table-td);
+					margin-bottom: 20px;
+						}
+				}
+
+				/* Анимации */
+				@keyframes fadeIn {
+						from { opacity: 0; transform: translateY(20px); }
+						to { opacity: 1; transform: translateY(0); }
+				}
+
+				.tab-content {
+						animation: fadeIn 0.5s ease;
+				}
+
+				/* Стили для SVG поля */
+				.large-text.code {
+						font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+						background: var(--mp-bg-svg);
+						border: 2px dashed var(--mp-color-border-svg);
+				}
+
+				.large-text.code:focus {
+						background: var(--mp-bg-svg-focus);
+						border-style: solid;
+				}
+
+				/* Описание полей */
+				.description {
+						color: var(--mp-color-text);
+						font-style: italic;
+						margin-top: 8px;
+				}
+
+				/* Успешные сообщения */
+				.notice.notice-success {
+						border-left-color: var(--mp-color-btn-success);
+						background: var(--mp-bg-success);
+						color: var(--mp-color-success);
+				}
+
+				.mp-field-hidden {
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(.4,0,.2,1), opacity 0.3s;
+            margin-bottom: 0 !important;
+            padding-top: 0 !important;
+            padding-bottom: 0 !important;
+        }
+        .mp-field-visible {
+            max-height: 500px;
+            opacity: 1;
+            transition: max-height 0.4s cubic-bezier(.4,0,.2,1), opacity 0.3s;
+        }
+/* Admin styles for Marketplace Reviews */
+
+.marketplace-review-status-pending {
+  color: #e60023;
+  font-weight: bold;
+}
+
+.marketplace-review-status-approved {
+  color: green;
+}
+
+.marketplace-review-status-rejected {
+  color: gray;
+}
+
+.marketplace-settings-page .form-table th {
+  width: 250px;
+}
+
+.marketplace-settings-page .form-table td {
+  vertical-align: middle;
+}
+
+.marketplace-settings-page .button-primary {
+  margin-top: 1rem;
+}
+
+/* Polished design for the settings page */
+.marketplace-settings-page {
+  background: #fff;
+  border: 1px solid #ccd0d4;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  max-width: 900px;
+  margin: 20px auto;
+}
+
+.marketplace-settings-page h1 {
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.marketplace-settings-page table.form-table {
+  background: #f9f9f9;
+  border-radius: 4px;
+  padding: 15px 20px;
+}
+
+.marketplace-settings-content {
+  max-width: 100%;
+}
+
+.marketplace-settings-page .form-table th,
+.marketplace-settings-page .form-table td {
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+.mp-review-field {
+	margin-bottom: 20px;
+}
+
+.mp-review-stars {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	padding: 8px 0;
+}
+
+.mp-review-stars label {
+	margin: 0 4px 0 0;
+	cursor: pointer;
+	transition: color 0.2s;
+	font-size: 0;
+	display: flex;
+	align-items: center;
+}
+
+.mp-star-default,
+.mp-star-fa,
+.mp-star-svg {
+	font-size: 24px;
+	color: var(--mp-color-primary);
+	vertical-align: middle;
+	transition: color 0.2s, transform 0.2s;
+}
+
+.mp-review-stars input[type="radio"] {
+	display: none;
+}
+
+.mp-review-stars input[type="radio"]:checked + .mp-star-default,
+.mp-review-stars input[type="radio"]:checked + .mp-star-fa,
+.mp-review-stars input[type="radio"]:checked + .mp-star-svg {
+	color: var(--mp-color-secondary);
+	transform: scale(1.15);
+}
+
+.mp-review-stars label:hover .mp-star-default,
+.mp-review-stars label:hover .mp-star-fa,
+.mp-review-stars label:hover .mp-star-svg,
+.mp-review-stars label:focus .mp-star-default,
+.mp-review-stars label:focus .mp-star-fa,
+.mp-review-stars label:focus .mp-star-svg {
+	color: var(--mp-color-primary-dark);
+	transform: scale(1.1);
+}
+
+.mp-star-svg svg {
+	width: 1em;
+	height: 1em;
+	vertical-align: middle;
+	display: inline-block;
+}
+
+.mp-review-stars input[type="radio"]:focus + .mp-star-default,
+.mp-review-stars input[type="radio"]:focus + .mp-star-fa,
+.mp-review-stars input[type="radio"]:focus + .mp-star-svg {
+	outline: 2px solid var(--mp-color-border-focus);
+	outline-offset: 2px;
+	border-radius: 50%;
+}
+
+/* Styles for other review fields */
+.mp-review-field input[type="text"],
+.mp-review-field input[type="email"],
+.mp-review-field textarea {
+	width: 100%;
+	max-width: 500px;
+	padding: 10px 14px;
+	border: 2px solid var(--mp-color-border);
+	border-radius: var(--mp-radius-btn);
+	font-size: 15px;
+	transition: border-color 0.3s, box-shadow 0.3s;
+	background: var(--mp-bg-white);
+	box-shadow: var(--mp-bg-box-shadow-light);
+}
+
+.mp-review-field input[type="text"]:focus,
+.mp-review-field input[type="email"]:focus,
+.mp-review-field textarea:focus {
+	border-color: var(--mp-color-border-focus);
+	box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+	outline: none;
+}
+
+.mp-review-field label {
+	display: block;
+	font-weight: 500;
+	color: var(--mp-color-label);
+	margin-bottom: 6px;
+}
+
+.mp-review-field .description {
+	color: var(--mp-color-text);
+	font-size: 13px;
+	margin-top: 4px;
+	font-style: italic;
+}

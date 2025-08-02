@@ -1,0 +1,58 @@
+/* Marketplace Reviews Styles */
+
+.marketplace-reviews-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.marketplace-single-review {
+  border: 1px solid #ddd;
+  padding: 1.5rem;
+  border-radius: 8px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+.review-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.review-rating .star {
+  color: #ccc;
+  font-size: 1.2rem;
+  margin-right: 2px;
+}
+
+.review-rating .star.filled {
+  color: #e60023; /* red accent */
+}
+
+.review-content {
+  font-size: 1rem;
+  color: #000000; /* black text */
+}
+
+.review-pros,
+.review-cons {
+  font-style: italic;
+  margin-top: 0.5rem;
+  color: #000000;
+}
+
+.review-images {
+  margin-top: 1rem;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.review-images img {
+  max-width: 80px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+}
+

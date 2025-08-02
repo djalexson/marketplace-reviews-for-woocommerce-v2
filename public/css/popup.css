@@ -1,0 +1,190 @@
+/* Popup Styles for Marketplace Reviews */
+
+.marketplace-review-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(1px);
+}
+
+.marketplace-review-popup.visible {
+  display: flex;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.marketplace-review-popup-content {
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 8px;
+  max-width: 600px;
+  width: 100%;
+	box-sizing: border-box;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  position: relative;
+  animation: slideUp 0.4s ease-out;
+}
+
+.marketplace-review-popup-close {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  line-height: 1;
+  color: #000000;
+  cursor: pointer;
+}
+
+.popup-product-info {
+  margin-bottom: 1rem;
+  font-weight: bold;
+  color: #000000;
+  font-size: 1.1rem;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+.marketplace-review-form {
+  margin-top: 2rem;
+  padding: 1rem;
+}
+
+.marketplace-review-form .form-group {
+  margin-bottom: 1rem;
+}
+
+.marketplace-review-form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #000000;
+}
+
+.marketplace-review-form input,
+.marketplace-review-form textarea,
+.marketplace-review-form select {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+	color: #000000;
+  background-color: #ffffff;
+}
+
+.marketplace-review-form button[type="submit"] {
+  background-color: #e60023; /* red accent */
+  color: #ffffff;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.marketplace-review-form button[type="submit"]:hover {
+  background-color: #cc001f;
+}
+
+
+.stars-rating {
+  display: flex;
+  gap: 8px;
+  font-size: 2rem;
+  margin-bottom: 1.2rem;
+  cursor: pointer;
+}
+
+.stars-rating .star {
+  color: #ccc;
+  transition: color 0.2s;
+}
+
+.stars-rating .star.active,
+.stars-rating .star.selected {
+  color: #e53935;  /* Красная для выбранных */
+}
+
+.stars-rating .star.hovered {
+  color: #888;     /* Серый при hover */
+}
+
+#drop-area {
+  border: 2px dashed #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  cursor: pointer;
+  background: #fafafb;
+  transition: border-color .2s;
+  margin-bottom: 1em;
+}
+#drop-area.dragover {
+  border-color: #f44336;
+  background: #fff6f6;
+}
+#gallery {
+  margin-top: 10px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+#gallery img {
+  height: 60px;
+  border-radius: 5px;
+  box-shadow: 0 1px 4px rgba(0,0,0,.08);
+  object-fit: cover;
+  background: #eee;
+  max-width: 120px;
+}
+#gallery .preview-img-wrap { 
+	position: relative; 
+	display: inline-block; 
+}
+
+
+#drop-label {
+  color: #888;
+  font-size: 0.95em;
+  display: block;
+  margin-bottom: 0.5em;
+}
+.remove-img {
+	 position: absolute; 
+	top: -7px; 
+	right: -7px; 
+	background: #fff;
+	 border-radius: 50%; 
+	color: #e53935; 
+	border: 1px solid #eee; 
+	font-size: 16px;
+	 width: 22px; 
+	height: 22px; 
+	line-height: 19px;
+	 cursor: pointer; }

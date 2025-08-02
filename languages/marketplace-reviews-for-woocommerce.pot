@@ -1,0 +1,75 @@
+# Translation template for Marketplace Reviews for WooCommerce
+msgid ""
+msgstr ""
+"Project-Id-Version: Marketplace Reviews for WooCommerce\n"
+"POT-Creation-Date: 2025-05-16\n"
+"Language: en\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+
+#: includes/class-marketplace-reviews.php
+msgid "Marketplace Reviews"
+msgstr ""
+
+#: includes/class-review-form.php
+msgid "Leave a Review"
+msgstr ""
+msgid "Your review:"
+msgstr ""
+msgid "Pros:"
+msgstr ""
+msgid "Cons:"
+msgstr ""
+msgid "Reviewed"
+msgstr ""
+msgid "You cannot leave a review for this product."
+msgstr ""
+msgid "Thank you! Your review has been submitted and is awaiting moderation."
+msgstr ""
+
+#: includes/class-settings.php
+msgid "Enable Photo Uploads"
+msgstr ""
+msgid "Notify Admin on New Reviews"
+msgstr ""
+msgid "Order Status to Trigger Review"
+msgstr ""
+msgid "Remind User to Leave Review via Popup"
+msgstr ""
+
+#: public/templates/single-review.php
+msgid "Review by"
+msgstr ""
+
+#: public/templates/reviews-list.php
+msgid "There are no reviews yet."
+msgstr ""
+
+#: admin/views/settings.php
+msgid "Marketplace Reviews Settings"
+msgstr ""
+
+#: admin/views/dashboard.php
+msgid "Welcome to the reviews management area."
+msgstr ""
+msgid "All Reviews"
+msgstr ""
+msgid "Settings"
+msgstr ""
+
+#: admin/views/reviews-list.php
+msgid "Customer Reviews"
+msgstr ""
+msgid "Below is a list of all product reviews submitted by customers."
+msgstr ""
+msgid "Author"
+msgstr ""
+msgid "Rating"
+msgstr ""
+msgid "Content"
+msgstr ""
+msgid "Status"
+msgstr ""
+msgid "No reviews found."
+msgstr ""
+
+# Add more strings as needed...
