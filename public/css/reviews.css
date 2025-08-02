@@ -56,3 +56,33 @@
   border: 1px solid #ddd;
 }
 
+.review-replies {
+  list-style: none;
+  margin-left: 1.5rem;
+  padding-left: 0;
+}
+
+.review-replies li {
+  margin-top: 1rem;
+}
+
+.review-replies .reply-content {
+  background-color: #f9f9f9;
+  padding: 0.75rem;
+  border-radius: 4px;
+}
+
+.review-reply-form {
+  margin-top: 1rem;
+}
+
+.review-reply-form textarea {
+  width: 100%;
+  min-height: 80px;
+  display: block;
+}
+
+.review-reply-form button {
+  margin-top: 0.5rem;
+}
+

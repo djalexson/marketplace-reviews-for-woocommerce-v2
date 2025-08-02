@@ -10,7 +10,9 @@ document.addEventListener('DOMContentLoaded', function () {
         const submitBtn = form.querySelector('button[type="submit"]');
 
         submitBtn.disabled = true;
-        submitBtn.textContent =submitBtn.setAttribute('data-loading-text') || 'Submitting...';	
+        const originalText = submitBtn.textContent;
+        const loadingText = submitBtn.getAttribute('data-loading-text') || 'Submitting...';
+        submitBtn.textContent = loadingText;
 
         fetch(MarketplaceReviewsData.ajax_url, {
             method: 'POST',
@@ -20,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function () {
             .then(response => response.json())
             .then(data => {
                 submitBtn.disabled = false;
-                submitBtn.textContent = 'Submit Review';
+                submitBtn.textContent = originalText;
 
                 if (data.success) {
                     alert(data.data.message);
@@ -32,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function () {
             .catch(error => {
                 console.error('Review submit error:', error);
                 submitBtn.disabled = false;
-                submitBtn.textContent = 'Submit Review';
+                submitBtn.textContent = originalText;
                 alert('Error submitting the review.');
             });
     });

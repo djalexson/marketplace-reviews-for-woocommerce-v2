@@ -4,6 +4,9 @@
  *
  * @package MarketplaceReviews
  */
+
+require_once __DIR__ . '/class-review-replies.php';
+
 class Marketplace_Reviews_Activator {
 
     public static function activate() {
@@ -38,6 +41,11 @@ class Marketplace_Reviews_Activator {
             }
         } else {
             update_option('marketplace_reviews_page_id', $existing->ID);
+        }
+
+        // Create table for threaded replies
+        if (class_exists('Marketplace_Review_Replies')) {
+            Marketplace_Review_Replies::create_table();
         }
 
         // Flush rewrite rules

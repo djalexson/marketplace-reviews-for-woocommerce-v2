@@ -37,6 +37,12 @@
             echo '<td>' . esc_html($content) . '</td>';
             echo '<td class="marketplace-review-status-' . esc_attr($status) . '">' . esc_html(ucfirst($status)) . '</td>';
             echo '</tr>';
+            $replies = Marketplace_Review_Replies::build_tree(Marketplace_Review_Replies::get_replies($id));
+            if (!empty($replies)) {
+                echo '<tr class="review-replies-row"><td colspan="4">';
+                Marketplace_Review_Replies::render_tree($replies, false);
+                echo '</td></tr>';
+            }
         }
 
         echo '</tbody></table>';
