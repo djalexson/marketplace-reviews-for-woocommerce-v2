@@ -104,3 +104,24 @@ if (marketplace_reviews_woocommerce_is_active()) {
         echo '<div class="error"><p>' . __('Marketplace Reviews for WooCommerce requires WooCommerce to be installed and activated.', 'marketplace-reviews-for-woocommerce') . '</p></div>';
     });
 }
+
+require_once __DIR__ . '/vendor/autoload.php';
+use Carbon_Fields\Container;
+use Carbon_Fields\Field;
+
+add_action('after_setup_theme', function() {
+    \Carbon_Fields\Carbon_Fields::boot();
+});
+
+add_action('carbon_fields_register_fields', function() {
+    Container::make('post_meta', __('Review Extra Fields', 'marketplace-reviews-for-woocommerce'))
+        ->where('post_type', '=', 'marketplace_review')
+        ->add_fields([
+            Field::make('text', 'review_pros', __('Pros', 'marketplace-reviews-for-woocommerce')),
+            Field::make('text', 'review_cons', __('Cons', 'marketplace-reviews-for-woocommerce')),
+            Field::make('complex', 'review_images', __('Images', 'marketplace-reviews-for-woocommerce'))
+                ->add_fields([
+                    Field::make('image', 'image', __('Image', 'marketplace-reviews-for-woocommerce')),
+                ]),
+        ]);
+});

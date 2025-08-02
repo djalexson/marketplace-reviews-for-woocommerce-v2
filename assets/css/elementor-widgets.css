@@ -1,0 +1,37 @@
+.elementor-marketplace-review-form {
+    --mp-form-bg: #fff;
+    --mp-form-border: #ddd;
+    --mp-form-radius: 8px;
+    --mp-form-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.elementor-marketplace-review-form .marketplace-review-form {
+    background: var(--mp-form-bg);
+    border: 1px solid var(--mp-form-border);
+    border-radius: var(--mp-form-radius);
+    box-shadow: var(--mp-form-shadow);
+    padding: 20px;
+}
+
+.elementor-marketplace-review-form .form-group {
+    margin-bottom: 1rem;
+}
+
+.elementor-marketplace-review-form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.elementor-marketplace-review-form input[type="text"],
+.elementor-marketplace-review-form textarea {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid var(--mp-form-border);
+    border-radius: calc(var(--mp-form-radius) / 2);
+}
+
+.elementor-marketplace-review-form .stars-rating {
+    display: flex;
+    gap: 5px;
+}

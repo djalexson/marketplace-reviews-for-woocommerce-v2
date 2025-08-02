@@ -263,4 +263,31 @@ $review_id = wp_insert_post([
 
         wp_mail($admin_email, $subject, $message);
     }
+public function can_user_reply($review_id, $user_id = 0) {
+    if (!$user_id) $user_id = get_current_user_id();
+    if (!$user_id) return false;
+    // Можно отвечать только если есть ответ администратора
+    return Marketplace_Review_Replies::has_admin_reply($review_id);
+}
+
+// При ответе пользователя — отправить уведомление автору
+public function handle_user_reply($review_id, $content) {
+    $user_id = get_current_user_id();
+    if (!$this->can_user_reply($review_id, $user_id)) {
+        return new WP_Error('no_permission', __('You cannot reply yet.', 'marketplace-reviews-for-woocommerce'));
+    }
+    $reply_id = wp_insert_post([
+        'post_type' => 'marketplace_review_reply',
+        'post_parent' => $review_id,
+        'post_content' => $content,
+        'post_status' => 'publish',
+        'post_author' => $user_id,
+    ]);
+    if (!is_wp_error($reply_id)) {
+        $review = get_post($review_id);
+        $author_email = get_the_author_meta('user_email', $review->post_author);
+        wp_mail($author_email, __('New reply to your review', 'marketplace-reviews-for-woocommerce'), $content);
+    }
+    return $reply_id;
+}
 }
