@@ -33,6 +33,8 @@ class Marketplace_Reviews {
         require_once MARKETPLACE_REVIEWS_PLUGIN_DIR . 'includes/class-settings.php';
         require_once MARKETPLACE_REVIEWS_PLUGIN_DIR . 'includes/class-elementor-integration.php';
         require_once MARKETPLACE_REVIEWS_PLUGIN_DIR . 'includes/class-yith-integration.php';
+        require_once MARKETPLACE_REVIEWS_PLUGIN_DIR . 'includes/class-review-replies.php';
+        require_once MARKETPLACE_REVIEWS_PLUGIN_DIR . 'includes/class-review-fields.php';
 
         $this->post_types     = new Marketplace_Reviews_Post_Types();
         $this->review_form    = new Marketplace_Reviews_Form();
@@ -68,6 +70,9 @@ class Marketplace_Reviews {
 
         add_action('wp_ajax_submit_marketplace_review', array($this->review_form, 'handle_review_submission'));
         add_action('wp_ajax_nopriv_submit_marketplace_review', array($this->review_form, 'handle_review_submission'));
+
+        add_action('wp_ajax_submit_review_reply', array('Marketplace_Review_Replies', 'handle_ajax'));
+        add_action('wp_ajax_nopriv_submit_review_reply', array('Marketplace_Review_Replies', 'handle_ajax'));
 
        add_filter('woocommerce_account_orders_columns', array($this->review_form, 'add_review_column_to_orders'));
       add_action('woocommerce_my_account_my_orders_column_review', array($this->review_form, 'add_review_button_to_orders'), 10, 2);

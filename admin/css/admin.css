@@ -114,9 +114,22 @@
 						padding: 30px;
 				}
 
-				.form-table {
-						background: transparent;
-				}
+.form-table {
+                                                background: transparent;
+}
+
+.review-replies {
+    list-style: none;
+    margin-left: 20px;
+    padding-left: 0;
+}
+
+.review-replies .reply-content {
+    background: var(--mp-bg-white);
+    border-left: 2px solid var(--mp-color-border);
+    padding: 8px;
+    margin-bottom: 8px;
+}
 
 				.form-table th {
 						width: 280px;

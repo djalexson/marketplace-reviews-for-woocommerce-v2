@@ -282,6 +282,16 @@ public function render_reviews_for_product($product_id) {
         }
         echo '</div>';
     }
+
+    $replies = Marketplace_Review_Replies::build_tree(Marketplace_Review_Replies::get_replies($review_id));
+    Marketplace_Review_Replies::render_tree($replies);
+
+    if (current_user_can('manage_options')) {
+        echo '<form class="review-reply-form" data-review="' . esc_attr($review_id) . '" data-parent="0">';
+        echo '<textarea name="reply_content" required></textarea>';
+        echo '<button type="submit">' . esc_html__('Reply', 'marketplace-reviews-for-woocommerce') . '</button>';
+        echo '</form>';
+    }
     echo '</div>';
 }
 
@@ -304,11 +314,13 @@ public function render_reviews_for_product($product_id) {
 
     public function enqueue_scripts() {
         wp_enqueue_script('marketplace-reviews-script', MARKETPLACE_REVIEWS_PLUGIN_URL . 'public/js/review-form.js', ['jquery'], MARKETPLACE_REVIEWS_VERSION, true);
+        wp_enqueue_script('marketplace-review-replies', MARKETPLACE_REVIEWS_PLUGIN_URL . 'public/js/review-replies.js', ['jquery'], MARKETPLACE_REVIEWS_VERSION, true);
         wp_enqueue_script('marketplace-reviews-popup', MARKETPLACE_REVIEWS_PLUGIN_URL . 'public/js/popup.js', ['jquery'], MARKETPLACE_REVIEWS_VERSION, true);
 
         wp_localize_script('marketplace-reviews-script', 'MarketplaceReviewsData', [
             'ajax_url' => admin_url('admin-ajax.php'),
             'nonce'    => wp_create_nonce('marketplace_review_submission'),
+            'reply_nonce' => wp_create_nonce('marketplace_review_reply'),
             'shouldRemind' => (is_user_logged_in() && get_option('marketplace_reviews_popup_reminder') === 'yes' && $this->has_unreviewed_delivered_products()) ? 'yes' : 'no'
         ]);
     }
