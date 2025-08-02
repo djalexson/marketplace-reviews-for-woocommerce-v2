@@ -1,5 +1,14 @@
 /* Marketplace Reviews Styles */
 
+:root {
+    --mp-main-color: #667eea;
+    --mp-bg: #f8f9fa;
+    --mp-radius: 10px;
+    --mp-border: #e9ecef;
+    --mp-success: #28a745;
+    --mp-error: #e60023;
+}
+
 .marketplace-reviews-list {
   display: flex;
   flex-direction: column;
@@ -70,6 +79,8 @@
   background-color: #f9f9f9;
   padding: 0.75rem;
   border-radius: 4px;
+  border-left: 3px solid var(--mp-main-color);
+  padding-left: 12px;
 }
 
 .review-reply-form {
@@ -84,5 +95,26 @@
 
 .review-reply-form button {
   margin-top: 0.5rem;
+}
+
+.mp-review-field, .mp-admin-reply {
+    font-family: inherit;
+    border-radius: var(--mp-radius);
+    background: var(--mp-bg);
+    margin-bottom: 16px;
+}
+
+.reply-to-admin {
+    background: var(--mp-main-color);
+    color: #fff;
+    border: none;
+    border-radius: var(--mp-radius);
+    padding: 6px 14px;
+    margin-top: 8px;
+    cursor: pointer;
+}
+
+.reply-to-admin:hover {
+    background: #5a67d8;
 }
 

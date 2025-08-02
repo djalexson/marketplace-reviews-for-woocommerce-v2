@@ -70,49 +70,53 @@ class Marketplace_Review_Replies {
         return $insert_id;
     }
 
+    // Получить все ответы для отзыва
     public static function get_replies($review_id) {
-        global $wpdb;
-        $table = $wpdb->prefix . self::TABLE_NAME;
-        return $wpdb->get_results($wpdb->prepare("SELECT * FROM $table WHERE review_id = %d ORDER BY created_at ASC", $review_id));
+        return get_posts([
+            'post_type' => 'marketplace_review_reply',
+            'post_parent' => $review_id,
+            'numberposts' => -1,
+            'orderby' => 'date',
+            'order' => 'ASC'
+        ]);
     }
 
+    // Построить дерево ответов
     public static function build_tree($replies) {
-        $map = [];
+        $tree = [];
         foreach ($replies as $reply) {
-            $reply->children = [];
-            $map[$reply->id] = $reply;
+            $tree[$reply->ID] = $reply;
         }
-        $root = [];
-        foreach ($map as $id => $reply) {
-            if ($reply->parent_id && isset($map[$reply->parent_id])) {
-                $map[$reply->parent_id]->children[] = $reply;
-            } else {
-                $root[] = $reply;
-            }
-        }
-        return $root;
+        return $tree;
     }
 
-    public static function render_tree($replies, $with_forms = true) {
-        if (empty($replies)) {
-            return;
-        }
+    // Рендер дерева (рекурсивно)
+    public static function render_tree($replies, $admin = false) {
+        if (empty($replies)) return;
         echo '<ul class="review-replies">';
         foreach ($replies as $reply) {
-            $user = get_userdata($reply->user_id);
-            $name = $user ? $user->display_name : __('User', 'marketplace-reviews-for-woocommerce');
-            echo '<li><div class="reply-content"><strong>' . esc_html($name) . '</strong><p>' . esc_html($reply->content) . '</p></div>';
-            if (!empty($reply->children)) {
-                self::render_tree($reply->children, $with_forms);
-            } elseif ($with_forms && $reply->is_admin && is_user_logged_in() && !current_user_can('manage_options')) {
-                echo '<form class="review-reply-form" data-review="' . esc_attr($reply->review_id) . '" data-parent="' . esc_attr($reply->id) . '">';
-                echo '<textarea name="reply_content" required></textarea>';
-                echo '<button type="submit">' . esc_html__('Reply', 'marketplace-reviews-for-woocommerce') . '</button>';
-                echo '</form>';
+            echo '<li class="reply-content">';
+            echo esc_html($reply->post_content);
+            if ($admin) {
+                // Кнопка ответа для пользователя, если есть ответ админа
+                echo '<button class="reply-to-admin" data-reply="' . esc_attr($reply->ID) . '">' . __('Ответить', 'marketplace-reviews-for-woocommerce') . '</button>';
             }
             echo '</li>';
         }
         echo '</ul>';
+    }
+
+    // Проверка: есть ли ответ администратора
+    public static function has_admin_reply($review_id) {
+        $args = [
+            'post_type' => 'marketplace_review_reply',
+            'post_parent' => $review_id,
+            'meta_key' => 'is_admin',
+            'meta_value' => '1',
+            'numberposts' => 1
+        ];
+        $replies = get_posts($args);
+        return !empty($replies);
     }
 
     public static function handle_ajax() {

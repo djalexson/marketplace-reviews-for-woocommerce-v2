@@ -1,44 +1,13 @@
 :root {
-						--mp-bg-main: #f8f9fa;
-						--mp-bg-white: #fff;
-						--mp-bg-tab-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-						--mp-bg-tab-gradient-hover: linear-gradient(135deg, #5a67d8 0%, #6b46c1 100%);
-						--mp-bg-tab-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
-						--mp-bg-tab-shadow-hover: 0 6px 20px rgba(102, 126, 234, 0.6);
-						--mp-bg-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-						--mp-bg-box-shadow-light: 0 2px 4px rgba(0, 0, 0, 0.05);
-						--mp-bg-success: #d4edda;
-						--mp-bg-error: #f8d7da;
-						--mp-bg-svg: #f8f9fa;
-						--mp-bg-svg-focus: #fff;
+    --mp-main-color: #667eea;
+    --mp-bg: #f8f9fa;
+    --mp-radius: 10px;
+    --mp-border: #e9ecef;
+    --mp-success: #28a745;
+    --mp-error: #e60023;
+}
 
-						--mp-color-primary: #667eea;
-						--mp-color-primary-dark: #5a67d8;
-						--mp-color-secondary: #764ba2;
-						--mp-color-title: #2c3e50;
-						--mp-color-text: #6c757d;
-						--mp-color-text-dark: #495057;
-						--mp-color-label: #2c3e50;
-						--mp-color-success: #155724;
-						--mp-color-error: #721c24;
-						--mp-color-border: #e9ecef;
-						--mp-color-border-focus: #667eea;
-						--mp-color-border-svg: #dee2e6;
-						--mp-color-checkbox: #667eea;
-						--mp-color-btn-success: #28a745;
-						--mp-color-btn-success-hover: #218838;
-						--mp-color-btn-save: #667eea;
-						--mp-color-btn-save-secondary: #764ba2;
-						--mp-color-btn-save-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
-
-						--mp-radius-main: 12px;
-						--mp-radius-btn: 8px;
-						--mp-radius-small: 6px;
-						--mp-radius-table-th: 8px 8px 0 0;
-						--mp-radius-table-td: 0 0 8px 8px;
-				}
-
-				.marketplace-reviews-settings {
+.marketplace-reviews-settings {
 						background: var(--mp-bg-main);
 					  margin: 20px auto;
             padding: 20px;
@@ -125,6 +94,8 @@
 }
 
 .review-replies .reply-content {
+    border-left: 3px solid var(--mp-main-color);
+    padding-left: 12px;
     background: var(--mp-bg-white);
     border-left: 2px solid var(--mp-color-border);
     padding: 8px;
@@ -525,6 +496,35 @@
 .mp-review-field textarea:focus {
 	border-color: var(--mp-color-border-focus);
 	box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+	outline: none;
+}
+
+.mp-review-field label {
+	display: block;
+	font-weight: 500;
+	color: var(--mp-color-label);
+	margin-bottom: 6px;
+}
+
+.mp-review-field .description {
+	color: var(--mp-color-text);
+	font-size: 13px;
+	margin-top: 4px;
+	font-style: italic;
+}
+
+.reply-to-admin {
+    background: var(--mp-main-color);
+    color: #fff;
+    border: none;
+    border-radius: var(--mp-radius);
+    padding: 6px 14px;
+    margin-top: 8px;
+    cursor: pointer;
+}
+.reply-to-admin:hover {
+    background: #5a67d8;
+}
 	outline: none;
 }
 
